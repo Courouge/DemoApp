@@ -30,4 +30,4 @@ docker exec -it $(docker-compose ps -q vertica) /opt/vertica/bin/vsql -U dbadmin
 
 
 # Build & Deploy scala app
-sbt assembly && docker cp build/ $(docker ps -a | grep spark-master | awk '{print $1}'):/ && docker exec -it $(docker ps -a | grep spark-master | awk '{print $1}') /spark/bin/spark-submit --class com.silca.KafkaSparkDemo --master spark://$(docker ps -a | grep spark-master | awk '{print $1}'):7077 --jars build/vertica-8.1.1.jar,build/vertica-jdbc-9.1.1.jar build/catitres_app-0.1.jar
+sbt assembly && docker cp build/ $(docker ps -a | grep spark-master | awk '{print $1}'):/ && docker exec -it $(docker ps -a | grep spark-master | awk '{print $1}') /spark/bin/spark-submit --class com.courouge.KafkaSparkDemo --master spark://$(docker ps -a | grep spark-master | awk '{print $1}'):7077 --jars build/vertica-8.1.1.jar,build/vertica-jdbc-9.1.1.jar build/catitres_app-0.1.jar
