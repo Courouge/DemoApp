@@ -16,3 +16,11 @@ services:
       KAFKA_CREATE_TOPICS: "events:1:1,error:1:1"
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
 
+  app:
+    image: golang:1.6.1-alpine
+  #  depends_on:
+   # - kafka
+    volumes:
+      - .:/Users/courouge/workspace/DemoApp/go/
+    working_dir: /Users/courouge/workspace/DemoApp/go/
+    command: go run go/secure.go
