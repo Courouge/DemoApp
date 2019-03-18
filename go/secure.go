@@ -8,16 +8,9 @@ import (
 	"encoding/hex"
 	"fmt"
 	"io"
-    "unsafe"
-    "kingpin "gopkg.in/alecthomas/kingpin.v2"
-    "github.com/Shopify/sarama"
+  "unsafe"
 )
 
-var (
-	brokerList = kingpin.Flag("brokerList", "kafka:9092").Strings()
-	topic      = kingpin.Flag("topic", "events").String()
-	maxRetry   = kingpin.Flag("maxRetry", "Retry limit").Default("5").Int()
-)
 
 func createHash(key string) string {
 	hasher := md5.New()
