@@ -1,0 +1,4 @@
+project/* linguist-vendored
+target/* linguist-vendored
+build/* linguist-vendored
+.scala linguist-vendored=false
